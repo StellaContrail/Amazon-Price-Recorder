@@ -1,0 +1,10 @@
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\bin\Debug\Amazon-Price-Recorder.exe.config
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\bin\Debug\Amazon-Price-Recorder.exe
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\bin\Debug\Amazon-Price-Recorder.pdb
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.csprojAssemblyReference.cache
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.Form1.resources
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.Properties.Resources.resources
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.csproj.GenerateResource.cache
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.csproj.CoreCompileInputs.cache
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.exe
+C:\Users\Contrail\source\repos\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.pdb
