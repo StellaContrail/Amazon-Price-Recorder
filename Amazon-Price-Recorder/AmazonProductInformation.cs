@@ -59,7 +59,12 @@ namespace Amazon_Price_Recorder
         public static Product AcquiredData(AngleSharp.Dom.IDocument document, Product product)
         {
             // 現在価格を抜き出す
-            int price = document.QuerySelector("#priceblock_ourprice").TextContent.PriceToValue();
+            var priceblock = document.QuerySelector("#priceblock_ourprice");
+            int price = 0;
+            if (priceblock != null)
+            {
+                price = priceblock.TextContent.PriceToValue();
+            }
             // 割引価格を抜き出す(存在しない場合有り)
             var priceSavingNode = document.QuerySelector("#regularprice_savings > td.priceBlockSavingsString");
             int priceSaving = 0;
@@ -97,6 +102,19 @@ namespace Amazon_Price_Recorder
             ranking = ranking.Remove(ranking.Length - 1, 1);
             // 商品在庫状態
             string status = document.QuerySelector("#availability > .a-size-medium.a-color-success").TextContent.Trim();
+
+            // Amazon出品 > 新品 > 中古の順でpriceに代入する
+            if (price == 0)
+            {
+                if (newStockPrice == 0)
+                {
+                    price = usedStockPrice;
+                }
+                else
+                {
+                    price = newStockPrice;
+                }
+            }
 
             product.Price = price;
             product.PriceHistory[DateTime.Now] = price;

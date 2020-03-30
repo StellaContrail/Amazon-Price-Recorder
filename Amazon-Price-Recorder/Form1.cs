@@ -182,16 +182,22 @@ namespace Amazon_Price_Recorder
             chart1.Series.Clear();
             Series seriesLine = new Series();
             seriesLine.ChartType = SeriesChartType.Line;
+            seriesLine.XValueType = ChartValueType.DateTime;
+            
             seriesLine.LegendText = "価格";
             seriesLine.BorderWidth = 2;
             seriesLine.MarkerStyle = MarkerStyle.Circle;
             seriesLine.MarkerSize = 12;
-            int i = 0;
-            foreach (var price in product.PriceHistory)
+            foreach (KeyValuePair<DateTime, int> price in product.PriceHistory)
             {
-                seriesLine.Points.Add(new DataPoint(i, price.Value));
+                seriesLine.Points.AddXY(price.Key, price.Value);
             }
+            DateTime dt = product.PriceHistory.OrderBy(x => x.Key).First().Key;
+            dt = dt.AddDays(-1);
             chart1.Series.Add(seriesLine);
+            chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
+            chart1.ChartAreas[0].AxisX.Minimum = dt.ToOADate();
+            chart1.ChartAreas[0].AxisX.Interval = 1;
         }
 
         // 商品名をクリックしたら商品ページを開くようにする

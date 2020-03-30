@@ -124,13 +124,7 @@ namespace Amazon_Price_Recorder
         // DateTime dt以前の古いPriceHistoryを削除する
         public static void DeletePriceHistory(Product product, DateTime dt)
         {
-            foreach (var history in product.PriceHistory)
-            {
-                if (history.Key < dt)
-                {
-                    product.PriceHistory.Remove(history.Key);
-                }
-            }
+            product.PriceHistory = product.PriceHistory.Where(x => x.Key > dt).ToDictionary(item => item.Key, item => item.Value);
         }
     }
 }
