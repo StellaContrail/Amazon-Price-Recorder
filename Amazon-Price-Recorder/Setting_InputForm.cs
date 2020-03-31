@@ -17,7 +17,7 @@ namespace Amazon_Price_Recorder
             InitializeComponent();
         }
 
-        public Settings settings = null;
+        public Setting settings = null;
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
@@ -35,7 +35,7 @@ namespace Amazon_Price_Recorder
                 MessageBox.Show("パスワードが入力されていません");
                 return;
             }
-            settings = new Settings(textBox1.Text, textBox2.Text, textBox3.Text);
+            settings = new Setting(textBox1.Text, textBox2.Text, textBox3.Text);
 
         }
     }

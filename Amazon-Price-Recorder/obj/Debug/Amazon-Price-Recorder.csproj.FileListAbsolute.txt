@@ -221,7 +221,6 @@ C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\b
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.csprojAssemblyReference.cache
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.exe.config
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.ASIN_InputForm.resources
-C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.Form1.resources
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.Properties.Resources.resources
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.RefreshRate_InputForm.resources
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.Setting_InputForm.resources
@@ -230,3 +229,4 @@ C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\o
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.csproj.CopyComplete
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.exe
 C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon-Price-Recorder.pdb
+C:\Users\Contrail\Documents\github\Amazon-Price-Recorder\Amazon-Price-Recorder\obj\Debug\Amazon_Price_Recorder.MainForm.resources

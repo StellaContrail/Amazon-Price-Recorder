@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AmazonProductInformation.cs" />
+    <Compile Include="AmazonProductAPI.cs" />
     <Compile Include="ASIN_InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,11 +64,11 @@
       <DependentUpon>ASIN_InputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="RefreshRate_InputForm.Designer.cs">
       <DependentUpon>RefreshRate_InputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
+    <Compile Include="Setting.cs" />
     <Compile Include="Setting_InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +89,8 @@
     <EmbeddedResource Include="ASIN_InputForm.resx">
       <DependentUpon>ASIN_InputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
