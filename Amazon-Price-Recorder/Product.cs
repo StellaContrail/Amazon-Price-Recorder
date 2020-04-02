@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Amazon_Price_Recorder
+namespace AmazonProductAPI
 {
     [Serializable]
     class Product
@@ -9,10 +9,10 @@ namespace Amazon_Price_Recorder
         // 登録時に取得できれば更新の必要なし
         public string ASIN { get; }
         public string Name { get; }
-        public int ReferencePrice { get; }
+        public int? ReferencePrice { get; }
 
         // 毎回更新する必要があるデータ
-        public Dictionary<DateTime, int> PriceHistory = new Dictionary<DateTime, int>();
+        public Dictionary<DateTime, int?> PriceHistory;
 
         [NonSerialized]
         string _status;
@@ -37,29 +37,29 @@ namespace Amazon_Price_Recorder
             set { _usedStockCount = value; }
         }
         [NonSerialized]
-        int _price;
-        public int Price
+        int? _price;
+        public int? Price
         {
             get { return _price; }
             set { _price = value; }
         }
         [NonSerialized]
-        int _newStockPrice;
-        public int NewStockPrice
+        int? _newStockPrice;
+        public int? NewStockPrice
         {
             get { return _newStockPrice; }
             set { _newStockPrice = value; }
         }
         [NonSerialized]
-        int _usedStockPrice;
-        public int UsedStockPrice
+        int? _usedStockPrice;
+        public int? UsedStockPrice
         {
             get { return _usedStockPrice; }
             set { _usedStockPrice = value; }
         }
         [NonSerialized]
-        int _priceSaving;
-        public int PriceSaving
+        int? _priceSaving;
+        public int? PriceSaving
         {
             get { return _priceSaving; }
             set { _priceSaving = value; }
@@ -86,32 +86,34 @@ namespace Amazon_Price_Recorder
         public bool whenNewStockCountGoesDown = false;
         public decimal thresholdNewStockCount = 0;
         public bool whenUsedStockCountGoesDown = false;
-        public decimal thresholdUsedStockcount = 0;
+        public decimal thresholdUsedStockCount = 0;
 
         // コンストラクタ及びメソッド
-        public Product(string _ASIN, string _name, int _referencePrice)
+        public Product(string _ASIN, string _name, int? _referencePrice)
         {
             ASIN = _ASIN;
             Name = _name;
             ReferencePrice = _referencePrice;
+            PriceHistory = new Dictionary<DateTime, int?>();
         }
         public Product()
         {
 
             ASIN = "";
             Name = "";
-            ReferencePrice = 0;
-            Price = 0;
-            PriceSaving = 0;
+            ReferencePrice = null;
+            Price = null;
+            PriceSaving = null;
             NewStockCount = 0;
-            NewStockPrice = 0;
+            NewStockPrice = null;
             UsedStockCount = 0;
-            UsedStockPrice = 0;
+            UsedStockPrice = null;
             MerchantStatus = 0;
             Ranking = "";
             Status = "";
+            PriceHistory = new Dictionary<DateTime, int?>();
         }
-        public void SetStockInfo(int _NewStockPrice, int _NewStockCount, int _UsedStockPrice, int _UsedStockCount)
+        public void SetStockInfo(int? _NewStockPrice, int _NewStockCount, int? _UsedStockPrice, int _UsedStockCount)
         {
             NewStockPrice = _NewStockPrice;
             NewStockCount = _NewStockCount;

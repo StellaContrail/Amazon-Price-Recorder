@@ -17,6 +17,14 @@ namespace Amazon_Price_Recorder
         // 商品価格を更新する間隔 (単位：秒)
         public decimal Interval { get; set; }
 
+        public Setting()
+        {
+            Email = "";
+            Id = "";
+            Pass = "";
+            Interval = 120;
+        }
+
         public Setting(string _email, string _id, string _pass)
         {
             Email = _email;

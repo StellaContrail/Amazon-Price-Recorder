@@ -32,61 +32,61 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.menubar = new System.Windows.Forms.ToolStrip();
-            this.addProductButton = new System.Windows.Forms.ToolStripButton();
+            this.Menubar = new System.Windows.Forms.ToolStrip();
+            this.AddProductButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.removeProductButton = new System.Windows.Forms.ToolStripButton();
+            this.RemoveProductButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.changeRefreshRateButton = new System.Windows.Forms.ToolStripButton();
+            this.ChangeRefreshRateButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.stopRefreshButton = new System.Windows.Forms.ToolStripButton();
+            this.StopRefreshButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.refreshButton = new System.Windows.Forms.ToolStripButton();
+            this.RefreshButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.settingButton = new System.Windows.Forms.ToolStripButton();
-            this.status = new System.Windows.Forms.StatusStrip();
+            this.SettingButton = new System.Windows.Forms.ToolStripButton();
+            this.Status = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.productList = new System.Windows.Forms.ListView();
+            this.ProductList = new System.Windows.Forms.ListView();
             this.productName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.leastPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.isAmazonSelling = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label_usedStock = new System.Windows.Forms.Label();
-            this.label_newStock = new System.Windows.Forms.Label();
-            this.label_ranking = new System.Windows.Forms.Label();
-            this.label_reference_price = new System.Windows.Forms.Label();
+            this.Label_usedStock = new System.Windows.Forms.Label();
+            this.Label_newStock = new System.Windows.Forms.Label();
+            this.Label_ranking = new System.Windows.Forms.Label();
+            this.Label_reference_price = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.saveSettingButton = new System.Windows.Forms.Button();
+            this.SaveSettingButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown_usedStockCountThreshold = new System.Windows.Forms.NumericUpDown();
-            this.checkBox_usedStockGoesDown = new System.Windows.Forms.CheckBox();
+            this.NumericUpDown_usedStockCountThreshold = new System.Windows.Forms.NumericUpDown();
+            this.CheckBox_usedStockGoesDown = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.numericUpDown_newStockCountThreshold = new System.Windows.Forms.NumericUpDown();
+            this.NumericUpDown_newStockCountThreshold = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDown_priceThreshold = new System.Windows.Forms.NumericUpDown();
-            this.checkBox_priceGoesDown = new System.Windows.Forms.CheckBox();
-            this.checkBox_newStockGoesDown = new System.Windows.Forms.CheckBox();
-            this.checkBox_statusChange = new System.Windows.Forms.CheckBox();
+            this.NumericUpDown_priceThreshold = new System.Windows.Forms.NumericUpDown();
+            this.CheckBox_priceGoesDown = new System.Windows.Forms.CheckBox();
+            this.CheckBox_newStockGoesDown = new System.Windows.Forms.CheckBox();
+            this.CheckBox_statusChange = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label_ASIN = new System.Windows.Forms.Label();
-            this.label_Amazon_pricecut = new System.Windows.Forms.Label();
+            this.Label_ASIN = new System.Windows.Forms.Label();
+            this.Label_Amazon_pricecut = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label_Amazon_price = new System.Windows.Forms.Label();
-            this.label_status = new System.Windows.Forms.Label();
+            this.Label_Amazon_price = new System.Windows.Forms.Label();
+            this.Label_status = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox_product = new System.Windows.Forms.PictureBox();
-            this.label_productName = new System.Windows.Forms.Label();
-            this.priceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.menubar.SuspendLayout();
-            this.status.SuspendLayout();
+            this.PictureBox_product = new System.Windows.Forms.PictureBox();
+            this.Label_productName = new System.Windows.Forms.Label();
+            this.PriceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.Menubar.SuspendLayout();
+            this.Status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,122 +96,122 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_usedStockCountThreshold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_newStockCountThreshold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_priceThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_usedStockCountThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_newStockCountThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_priceThreshold)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_product)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.priceChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_product)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // menubar
+            // Menubar
             // 
-            this.menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProductButton,
+            this.Menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddProductButton,
             this.toolStripSeparator1,
-            this.removeProductButton,
+            this.RemoveProductButton,
             this.toolStripSeparator2,
-            this.changeRefreshRateButton,
+            this.ChangeRefreshRateButton,
             this.toolStripSeparator3,
-            this.stopRefreshButton,
+            this.StopRefreshButton,
             this.toolStripSeparator4,
-            this.refreshButton,
+            this.RefreshButton,
             this.toolStripSeparator5,
-            this.settingButton});
-            this.menubar.Location = new System.Drawing.Point(0, 0);
-            this.menubar.Name = "menubar";
-            this.menubar.Size = new System.Drawing.Size(1365, 25);
-            this.menubar.TabIndex = 1;
-            this.menubar.Text = "toolStrip1";
+            this.SettingButton});
+            this.Menubar.Location = new System.Drawing.Point(0, 0);
+            this.Menubar.Name = "Menubar";
+            this.Menubar.Size = new System.Drawing.Size(1365, 25);
+            this.Menubar.TabIndex = 1;
+            this.Menubar.Text = "toolStrip1";
             // 
-            // addProductButton
+            // AddProductButton
             // 
-            this.addProductButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.addProductButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(87, 22);
-            this.addProductButton.Text = "商品を追加する";
-            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
+            this.AddProductButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.AddProductButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(87, 22);
+            this.AddProductButton.Text = "商品を追加する";
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // removeProductButton
+            // RemoveProductButton
             // 
-            this.removeProductButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.removeProductButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.removeProductButton.Name = "removeProductButton";
-            this.removeProductButton.Size = new System.Drawing.Size(86, 22);
-            this.removeProductButton.Text = "商品を取り消す";
-            this.removeProductButton.Click += new System.EventHandler(this.removeProductButton_Click);
+            this.RemoveProductButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.RemoveProductButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RemoveProductButton.Name = "RemoveProductButton";
+            this.RemoveProductButton.Size = new System.Drawing.Size(86, 22);
+            this.RemoveProductButton.Text = "商品を取り消す";
+            this.RemoveProductButton.Click += new System.EventHandler(this.RemoveProductButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // changeRefreshRateButton
+            // ChangeRefreshRateButton
             // 
-            this.changeRefreshRateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.changeRefreshRateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.changeRefreshRateButton.Name = "changeRefreshRateButton";
-            this.changeRefreshRateButton.Size = new System.Drawing.Size(111, 22);
-            this.changeRefreshRateButton.Text = "更新間隔を変更する";
-            this.changeRefreshRateButton.Click += new System.EventHandler(this.changeRefreshRateButton_Click);
+            this.ChangeRefreshRateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ChangeRefreshRateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ChangeRefreshRateButton.Name = "ChangeRefreshRateButton";
+            this.ChangeRefreshRateButton.Size = new System.Drawing.Size(111, 22);
+            this.ChangeRefreshRateButton.Text = "更新間隔を変更する";
+            this.ChangeRefreshRateButton.Click += new System.EventHandler(this.ChangeRefreshRateButton_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // stopRefreshButton
+            // StopRefreshButton
             // 
-            this.stopRefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.stopRefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stopRefreshButton.Name = "stopRefreshButton";
-            this.stopRefreshButton.Size = new System.Drawing.Size(87, 22);
-            this.stopRefreshButton.Text = "更新を停止する";
-            this.stopRefreshButton.Click += new System.EventHandler(this.stopRefreshButton_Click);
+            this.StopRefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.StopRefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.StopRefreshButton.Name = "StopRefreshButton";
+            this.StopRefreshButton.Size = new System.Drawing.Size(87, 22);
+            this.StopRefreshButton.Text = "更新を停止する";
+            this.StopRefreshButton.Click += new System.EventHandler(this.StopRefreshButton_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // refreshButton
+            // RefreshButton
             // 
-            this.refreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(59, 22);
-            this.refreshButton.Text = "強制更新";
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(59, 22);
+            this.RefreshButton.Text = "強制更新";
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // settingButton
+            // SettingButton
             // 
-            this.settingButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.settingButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.settingButton.Name = "settingButton";
-            this.settingButton.Size = new System.Drawing.Size(35, 22);
-            this.settingButton.Text = "設定";
-            this.settingButton.Click += new System.EventHandler(this.settingButton_Click);
+            this.SettingButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.SettingButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SettingButton.Name = "SettingButton";
+            this.SettingButton.Size = new System.Drawing.Size(35, 22);
+            this.SettingButton.Text = "設定";
+            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
             // 
-            // status
+            // Status
             // 
-            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.status.Location = new System.Drawing.Point(0, 664);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(1365, 22);
-            this.status.TabIndex = 3;
-            this.status.Text = "statusStrip1";
+            this.Status.Location = new System.Drawing.Point(0, 664);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(1365, 22);
+            this.Status.TabIndex = 3;
+            this.Status.Text = "statusStrip1";
             // 
             // statusLabel
             // 
@@ -227,7 +227,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.productList);
+            this.splitContainer1.Panel1.Controls.Add(this.ProductList);
             // 
             // splitContainer1.Panel2
             // 
@@ -236,25 +236,25 @@
             this.splitContainer1.SplitterDistance = 453;
             this.splitContainer1.TabIndex = 4;
             // 
-            // productList
+            // ProductList
             // 
-            this.productList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ProductList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.productName,
             this.leastPrice,
             this.stock,
             this.isAmazonSelling});
-            this.productList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productList.FullRowSelect = true;
-            this.productList.GridLines = true;
-            this.productList.HideSelection = false;
-            this.productList.Location = new System.Drawing.Point(0, 0);
-            this.productList.MultiSelect = false;
-            this.productList.Name = "productList";
-            this.productList.Size = new System.Drawing.Size(453, 639);
-            this.productList.TabIndex = 0;
-            this.productList.UseCompatibleStateImageBehavior = false;
-            this.productList.View = System.Windows.Forms.View.Details;
-            this.productList.SelectedIndexChanged += new System.EventHandler(this.productList_SelectedIndexChanged);
+            this.ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductList.FullRowSelect = true;
+            this.ProductList.GridLines = true;
+            this.ProductList.HideSelection = false;
+            this.ProductList.Location = new System.Drawing.Point(0, 0);
+            this.ProductList.MultiSelect = false;
+            this.ProductList.Name = "ProductList";
+            this.ProductList.Size = new System.Drawing.Size(453, 639);
+            this.ProductList.TabIndex = 0;
+            this.ProductList.UseCompatibleStateImageBehavior = false;
+            this.ProductList.View = System.Windows.Forms.View.Details;
+            this.ProductList.SelectedIndexChanged += new System.EventHandler(this.ProductList_SelectedIndexChanged);
             // 
             // productName
             // 
@@ -285,66 +285,66 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
-            this.splitContainer2.Panel1.Controls.Add(this.label_usedStock);
-            this.splitContainer2.Panel1.Controls.Add(this.label_newStock);
-            this.splitContainer2.Panel1.Controls.Add(this.label_ranking);
-            this.splitContainer2.Panel1.Controls.Add(this.label_reference_price);
+            this.splitContainer2.Panel1.Controls.Add(this.Label_usedStock);
+            this.splitContainer2.Panel1.Controls.Add(this.Label_newStock);
+            this.splitContainer2.Panel1.Controls.Add(this.Label_ranking);
+            this.splitContainer2.Panel1.Controls.Add(this.Label_reference_price);
             this.splitContainer2.Panel1.Controls.Add(this.label7);
             this.splitContainer2.Panel1.Controls.Add(this.label6);
             this.splitContainer2.Panel1.Controls.Add(this.label3);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer2.Panel1.Controls.Add(this.pictureBox_product);
-            this.splitContainer2.Panel1.Controls.Add(this.label_productName);
+            this.splitContainer2.Panel1.Controls.Add(this.PictureBox_product);
+            this.splitContainer2.Panel1.Controls.Add(this.Label_productName);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.priceChart);
+            this.splitContainer2.Panel2.Controls.Add(this.PriceChart);
             this.splitContainer2.Size = new System.Drawing.Size(908, 639);
             this.splitContainer2.SplitterDistance = 249;
             this.splitContainer2.TabIndex = 0;
             // 
-            // label_usedStock
+            // Label_usedStock
             // 
-            this.label_usedStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_usedStock.AutoSize = true;
-            this.label_usedStock.Location = new System.Drawing.Point(327, 223);
-            this.label_usedStock.Name = "label_usedStock";
-            this.label_usedStock.Size = new System.Drawing.Size(58, 12);
-            this.label_usedStock.TabIndex = 23;
-            this.label_usedStock.Text = "usedStock";
+            this.Label_usedStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Label_usedStock.AutoSize = true;
+            this.Label_usedStock.Location = new System.Drawing.Point(327, 223);
+            this.Label_usedStock.Name = "Label_usedStock";
+            this.Label_usedStock.Size = new System.Drawing.Size(58, 12);
+            this.Label_usedStock.TabIndex = 23;
+            this.Label_usedStock.Text = "usedStock";
             // 
-            // label_newStock
+            // Label_newStock
             // 
-            this.label_newStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_newStock.AutoSize = true;
-            this.label_newStock.Location = new System.Drawing.Point(327, 205);
-            this.label_newStock.Name = "label_newStock";
-            this.label_newStock.Size = new System.Drawing.Size(54, 12);
-            this.label_newStock.TabIndex = 22;
-            this.label_newStock.Text = "newStock";
+            this.Label_newStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Label_newStock.AutoSize = true;
+            this.Label_newStock.Location = new System.Drawing.Point(327, 205);
+            this.Label_newStock.Name = "Label_newStock";
+            this.Label_newStock.Size = new System.Drawing.Size(54, 12);
+            this.Label_newStock.TabIndex = 22;
+            this.Label_newStock.Text = "newStock";
             // 
-            // label_ranking
+            // Label_ranking
             // 
-            this.label_ranking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_ranking.AutoSize = true;
-            this.label_ranking.Location = new System.Drawing.Point(327, 65);
-            this.label_ranking.Name = "label_ranking";
-            this.label_ranking.Size = new System.Drawing.Size(42, 12);
-            this.label_ranking.TabIndex = 21;
-            this.label_ranking.Text = "ranking";
+            this.Label_ranking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Label_ranking.AutoSize = true;
+            this.Label_ranking.Location = new System.Drawing.Point(327, 65);
+            this.Label_ranking.Name = "Label_ranking";
+            this.Label_ranking.Size = new System.Drawing.Size(42, 12);
+            this.Label_ranking.TabIndex = 21;
+            this.Label_ranking.Text = "ranking";
             // 
-            // label_reference_price
+            // Label_reference_price
             // 
-            this.label_reference_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_reference_price.AutoSize = true;
-            this.label_reference_price.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_reference_price.Location = new System.Drawing.Point(326, 47);
-            this.label_reference_price.Name = "label_reference_price";
-            this.label_reference_price.Size = new System.Drawing.Size(97, 12);
-            this.label_reference_price.TabIndex = 20;
-            this.label_reference_price.Text = "reference_price";
+            this.Label_reference_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Label_reference_price.AutoSize = true;
+            this.Label_reference_price.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label_reference_price.Location = new System.Drawing.Point(326, 47);
+            this.Label_reference_price.Name = "Label_reference_price";
+            this.Label_reference_price.Size = new System.Drawing.Size(97, 12);
+            this.Label_reference_price.TabIndex = 20;
+            this.Label_reference_price.Text = "reference_price";
             // 
             // label7
             // 
@@ -375,9 +375,9 @@
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.Location = new System.Drawing.Point(233, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 12);
+            this.label3.Size = new System.Drawing.Size(85, 12);
             this.label3.TabIndex = 17;
-            this.label3.Text = "総合ランキング：";
+            this.label3.Text = "ランキング　 　：";
             // 
             // label2
             // 
@@ -393,17 +393,17 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.saveSettingButton);
+            this.groupBox2.Controls.Add(this.SaveSettingButton);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.numericUpDown_usedStockCountThreshold);
-            this.groupBox2.Controls.Add(this.checkBox_usedStockGoesDown);
+            this.groupBox2.Controls.Add(this.NumericUpDown_usedStockCountThreshold);
+            this.groupBox2.Controls.Add(this.CheckBox_usedStockGoesDown);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.numericUpDown_newStockCountThreshold);
+            this.groupBox2.Controls.Add(this.NumericUpDown_newStockCountThreshold);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.numericUpDown_priceThreshold);
-            this.groupBox2.Controls.Add(this.checkBox_priceGoesDown);
-            this.groupBox2.Controls.Add(this.checkBox_newStockGoesDown);
-            this.groupBox2.Controls.Add(this.checkBox_statusChange);
+            this.groupBox2.Controls.Add(this.NumericUpDown_priceThreshold);
+            this.groupBox2.Controls.Add(this.CheckBox_priceGoesDown);
+            this.groupBox2.Controls.Add(this.CheckBox_newStockGoesDown);
+            this.groupBox2.Controls.Add(this.CheckBox_statusChange);
             this.groupBox2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox2.Location = new System.Drawing.Point(476, 49);
             this.groupBox2.Name = "groupBox2";
@@ -412,15 +412,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "通知設定";
             // 
-            // saveSettingButton
+            // SaveSettingButton
             // 
-            this.saveSettingButton.Location = new System.Drawing.Point(29, 136);
-            this.saveSettingButton.Name = "saveSettingButton";
-            this.saveSettingButton.Size = new System.Drawing.Size(372, 41);
-            this.saveSettingButton.TabIndex = 11;
-            this.saveSettingButton.Text = "設定を保存する";
-            this.saveSettingButton.UseVisualStyleBackColor = true;
-            this.saveSettingButton.Click += new System.EventHandler(this.saveSettingButton_Click);
+            this.SaveSettingButton.Location = new System.Drawing.Point(29, 136);
+            this.SaveSettingButton.Name = "SaveSettingButton";
+            this.SaveSettingButton.Size = new System.Drawing.Size(372, 41);
+            this.SaveSettingButton.TabIndex = 11;
+            this.SaveSettingButton.Text = "設定を保存する";
+            this.SaveSettingButton.UseVisualStyleBackColor = true;
+            this.SaveSettingButton.Click += new System.EventHandler(this.SaveSettingButton_Click);
             // 
             // label16
             // 
@@ -431,22 +431,22 @@
             this.label16.TabIndex = 10;
             this.label16.Text = "個を下回ったときに知らせる";
             // 
-            // numericUpDown_usedStockCountThreshold
+            // NumericUpDown_usedStockCountThreshold
             // 
-            this.numericUpDown_usedStockCountThreshold.Location = new System.Drawing.Point(177, 100);
-            this.numericUpDown_usedStockCountThreshold.Name = "numericUpDown_usedStockCountThreshold";
-            this.numericUpDown_usedStockCountThreshold.Size = new System.Drawing.Size(48, 19);
-            this.numericUpDown_usedStockCountThreshold.TabIndex = 9;
+            this.NumericUpDown_usedStockCountThreshold.Location = new System.Drawing.Point(177, 100);
+            this.NumericUpDown_usedStockCountThreshold.Name = "NumericUpDown_usedStockCountThreshold";
+            this.NumericUpDown_usedStockCountThreshold.Size = new System.Drawing.Size(48, 19);
+            this.NumericUpDown_usedStockCountThreshold.TabIndex = 9;
             // 
-            // checkBox_usedStockGoesDown
+            // CheckBox_usedStockGoesDown
             // 
-            this.checkBox_usedStockGoesDown.AutoSize = true;
-            this.checkBox_usedStockGoesDown.Location = new System.Drawing.Point(29, 103);
-            this.checkBox_usedStockGoesDown.Name = "checkBox_usedStockGoesDown";
-            this.checkBox_usedStockGoesDown.Size = new System.Drawing.Size(145, 16);
-            this.checkBox_usedStockGoesDown.TabIndex = 8;
-            this.checkBox_usedStockGoesDown.Text = "その他中古品の在庫が";
-            this.checkBox_usedStockGoesDown.UseVisualStyleBackColor = true;
+            this.CheckBox_usedStockGoesDown.AutoSize = true;
+            this.CheckBox_usedStockGoesDown.Location = new System.Drawing.Point(29, 103);
+            this.CheckBox_usedStockGoesDown.Name = "CheckBox_usedStockGoesDown";
+            this.CheckBox_usedStockGoesDown.Size = new System.Drawing.Size(145, 16);
+            this.CheckBox_usedStockGoesDown.TabIndex = 8;
+            this.CheckBox_usedStockGoesDown.Text = "その他中古品の在庫が";
+            this.CheckBox_usedStockGoesDown.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -457,12 +457,12 @@
             this.label15.TabIndex = 7;
             this.label15.Text = "個を下回ったときに知らせる";
             // 
-            // numericUpDown_newStockCountThreshold
+            // NumericUpDown_newStockCountThreshold
             // 
-            this.numericUpDown_newStockCountThreshold.Location = new System.Drawing.Point(167, 75);
-            this.numericUpDown_newStockCountThreshold.Name = "numericUpDown_newStockCountThreshold";
-            this.numericUpDown_newStockCountThreshold.Size = new System.Drawing.Size(48, 19);
-            this.numericUpDown_newStockCountThreshold.TabIndex = 6;
+            this.NumericUpDown_newStockCountThreshold.Location = new System.Drawing.Point(167, 75);
+            this.NumericUpDown_newStockCountThreshold.Name = "NumericUpDown_newStockCountThreshold";
+            this.NumericUpDown_newStockCountThreshold.Size = new System.Drawing.Size(48, 19);
+            this.NumericUpDown_newStockCountThreshold.TabIndex = 6;
             // 
             // label14
             // 
@@ -473,56 +473,56 @@
             this.label14.TabIndex = 5;
             this.label14.Text = "円を下回ったときに知らせる";
             // 
-            // numericUpDown_priceThreshold
+            // NumericUpDown_priceThreshold
             // 
-            this.numericUpDown_priceThreshold.Location = new System.Drawing.Point(96, 48);
-            this.numericUpDown_priceThreshold.Maximum = new decimal(new int[] {
+            this.NumericUpDown_priceThreshold.Location = new System.Drawing.Point(96, 48);
+            this.NumericUpDown_priceThreshold.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
-            this.numericUpDown_priceThreshold.Name = "numericUpDown_priceThreshold";
-            this.numericUpDown_priceThreshold.Size = new System.Drawing.Size(84, 19);
-            this.numericUpDown_priceThreshold.TabIndex = 4;
+            this.NumericUpDown_priceThreshold.Name = "NumericUpDown_priceThreshold";
+            this.NumericUpDown_priceThreshold.Size = new System.Drawing.Size(84, 19);
+            this.NumericUpDown_priceThreshold.TabIndex = 4;
             // 
-            // checkBox_priceGoesDown
+            // CheckBox_priceGoesDown
             // 
-            this.checkBox_priceGoesDown.AutoSize = true;
-            this.checkBox_priceGoesDown.Location = new System.Drawing.Point(29, 51);
-            this.checkBox_priceGoesDown.Name = "checkBox_priceGoesDown";
-            this.checkBox_priceGoesDown.Size = new System.Drawing.Size(61, 16);
-            this.checkBox_priceGoesDown.TabIndex = 3;
-            this.checkBox_priceGoesDown.Text = "値段が";
-            this.checkBox_priceGoesDown.UseVisualStyleBackColor = true;
+            this.CheckBox_priceGoesDown.AutoSize = true;
+            this.CheckBox_priceGoesDown.Location = new System.Drawing.Point(29, 51);
+            this.CheckBox_priceGoesDown.Name = "CheckBox_priceGoesDown";
+            this.CheckBox_priceGoesDown.Size = new System.Drawing.Size(61, 16);
+            this.CheckBox_priceGoesDown.TabIndex = 3;
+            this.CheckBox_priceGoesDown.Text = "値段が";
+            this.CheckBox_priceGoesDown.UseVisualStyleBackColor = true;
             // 
-            // checkBox_newStockGoesDown
+            // CheckBox_newStockGoesDown
             // 
-            this.checkBox_newStockGoesDown.AutoSize = true;
-            this.checkBox_newStockGoesDown.Location = new System.Drawing.Point(29, 78);
-            this.checkBox_newStockGoesDown.Name = "checkBox_newStockGoesDown";
-            this.checkBox_newStockGoesDown.Size = new System.Drawing.Size(132, 16);
-            this.checkBox_newStockGoesDown.TabIndex = 2;
-            this.checkBox_newStockGoesDown.Text = "その他新品の在庫が";
-            this.checkBox_newStockGoesDown.UseVisualStyleBackColor = true;
+            this.CheckBox_newStockGoesDown.AutoSize = true;
+            this.CheckBox_newStockGoesDown.Location = new System.Drawing.Point(29, 78);
+            this.CheckBox_newStockGoesDown.Name = "CheckBox_newStockGoesDown";
+            this.CheckBox_newStockGoesDown.Size = new System.Drawing.Size(132, 16);
+            this.CheckBox_newStockGoesDown.TabIndex = 2;
+            this.CheckBox_newStockGoesDown.Text = "その他新品の在庫が";
+            this.CheckBox_newStockGoesDown.UseVisualStyleBackColor = true;
             // 
-            // checkBox_statusChange
+            // CheckBox_statusChange
             // 
-            this.checkBox_statusChange.AutoSize = true;
-            this.checkBox_statusChange.Location = new System.Drawing.Point(29, 26);
-            this.checkBox_statusChange.Name = "checkBox_statusChange";
-            this.checkBox_statusChange.Size = new System.Drawing.Size(298, 16);
-            this.checkBox_statusChange.TabIndex = 0;
-            this.checkBox_statusChange.Text = "Amazon.co.jp の在庫状況が変化したときに知らせる\r\n";
-            this.checkBox_statusChange.UseVisualStyleBackColor = true;
+            this.CheckBox_statusChange.AutoSize = true;
+            this.CheckBox_statusChange.Location = new System.Drawing.Point(29, 26);
+            this.CheckBox_statusChange.Name = "CheckBox_statusChange";
+            this.CheckBox_statusChange.Size = new System.Drawing.Size(298, 16);
+            this.CheckBox_statusChange.TabIndex = 0;
+            this.CheckBox_statusChange.Text = "Amazon.co.jp の在庫状況が変化したときに知らせる\r\n";
+            this.CheckBox_statusChange.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.label_ASIN);
-            this.groupBox1.Controls.Add(this.label_Amazon_pricecut);
+            this.groupBox1.Controls.Add(this.Label_ASIN);
+            this.groupBox1.Controls.Add(this.Label_Amazon_pricecut);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label_Amazon_price);
-            this.groupBox1.Controls.Add(this.label_status);
+            this.groupBox1.Controls.Add(this.Label_Amazon_price);
+            this.groupBox1.Controls.Add(this.Label_status);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -533,26 +533,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "商品情報";
             // 
-            // label_ASIN
+            // Label_ASIN
             // 
-            this.label_ASIN.AutoSize = true;
-            this.label_ASIN.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_ASIN.Location = new System.Drawing.Point(54, 97);
-            this.label_ASIN.Name = "label_ASIN";
-            this.label_ASIN.Size = new System.Drawing.Size(31, 12);
-            this.label_ASIN.TabIndex = 25;
-            this.label_ASIN.Text = "ASIN";
+            this.Label_ASIN.AutoSize = true;
+            this.Label_ASIN.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label_ASIN.Location = new System.Drawing.Point(54, 97);
+            this.Label_ASIN.Name = "Label_ASIN";
+            this.Label_ASIN.Size = new System.Drawing.Size(31, 12);
+            this.Label_ASIN.TabIndex = 25;
+            this.Label_ASIN.Text = "ASIN";
             // 
-            // label_Amazon_pricecut
+            // Label_Amazon_pricecut
             // 
-            this.label_Amazon_pricecut.AutoSize = true;
-            this.label_Amazon_pricecut.BackColor = System.Drawing.Color.White;
-            this.label_Amazon_pricecut.ForeColor = System.Drawing.Color.Red;
-            this.label_Amazon_pricecut.Location = new System.Drawing.Point(54, 77);
-            this.label_Amazon_pricecut.Name = "label_Amazon_pricecut";
-            this.label_Amazon_pricecut.Size = new System.Drawing.Size(105, 12);
-            this.label_Amazon_pricecut.TabIndex = 13;
-            this.label_Amazon_pricecut.Text = "Amazon_pricecut";
+            this.Label_Amazon_pricecut.AutoSize = true;
+            this.Label_Amazon_pricecut.BackColor = System.Drawing.Color.White;
+            this.Label_Amazon_pricecut.ForeColor = System.Drawing.Color.Red;
+            this.Label_Amazon_pricecut.Location = new System.Drawing.Point(54, 77);
+            this.Label_Amazon_pricecut.Name = "Label_Amazon_pricecut";
+            this.Label_Amazon_pricecut.Size = new System.Drawing.Size(105, 12);
+            this.Label_Amazon_pricecut.TabIndex = 13;
+            this.Label_Amazon_pricecut.Text = "Amazon_pricecut";
             // 
             // label8
             // 
@@ -565,23 +565,23 @@
             this.label8.TabIndex = 24;
             this.label8.Text = "ASIN：";
             // 
-            // label_Amazon_price
+            // Label_Amazon_price
             // 
-            this.label_Amazon_price.AutoSize = true;
-            this.label_Amazon_price.Location = new System.Drawing.Point(54, 60);
-            this.label_Amazon_price.Name = "label_Amazon_price";
-            this.label_Amazon_price.Size = new System.Drawing.Size(82, 12);
-            this.label_Amazon_price.TabIndex = 12;
-            this.label_Amazon_price.Text = "AmazonPrice";
+            this.Label_Amazon_price.AutoSize = true;
+            this.Label_Amazon_price.Location = new System.Drawing.Point(54, 60);
+            this.Label_Amazon_price.Name = "Label_Amazon_price";
+            this.Label_Amazon_price.Size = new System.Drawing.Size(82, 12);
+            this.Label_Amazon_price.TabIndex = 12;
+            this.Label_Amazon_price.Text = "AmazonPrice";
             // 
-            // label_status
+            // Label_status
             // 
-            this.label_status.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_status.Location = new System.Drawing.Point(55, 14);
-            this.label_status.Name = "label_status";
-            this.label_status.Size = new System.Drawing.Size(175, 32);
-            this.label_status.TabIndex = 10;
-            this.label_status.Text = "status";
+            this.Label_status.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label_status.Location = new System.Drawing.Point(55, 14);
+            this.Label_status.Name = "Label_status";
+            this.Label_status.Size = new System.Drawing.Size(175, 32);
+            this.Label_status.TabIndex = 10;
+            this.Label_status.Text = "status";
             // 
             // label5
             // 
@@ -603,54 +603,54 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "状態 ：";
             // 
-            // pictureBox_product
+            // PictureBox_product
             // 
-            this.pictureBox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox_product.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_product.Location = new System.Drawing.Point(19, 49);
-            this.pictureBox_product.Name = "pictureBox_product";
-            this.pictureBox_product.Size = new System.Drawing.Size(201, 193);
-            this.pictureBox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_product.TabIndex = 13;
-            this.pictureBox_product.TabStop = false;
+            this.PictureBox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PictureBox_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PictureBox_product.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PictureBox_product.Location = new System.Drawing.Point(19, 49);
+            this.PictureBox_product.Name = "PictureBox_product";
+            this.PictureBox_product.Size = new System.Drawing.Size(201, 193);
+            this.PictureBox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox_product.TabIndex = 13;
+            this.PictureBox_product.TabStop = false;
             // 
-            // label_productName
+            // Label_productName
             // 
-            this.label_productName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_productName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label_productName.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_productName.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.label_productName.Location = new System.Drawing.Point(0, 0);
-            this.label_productName.Name = "label_productName";
-            this.label_productName.Size = new System.Drawing.Size(908, 48);
-            this.label_productName.TabIndex = 12;
-            this.label_productName.Text = "product_name";
-            this.label_productName.Click += new System.EventHandler(this.label_productName_Click);
+            this.Label_productName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label_productName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Label_productName.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label_productName.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.Label_productName.Location = new System.Drawing.Point(0, 0);
+            this.Label_productName.Name = "Label_productName";
+            this.Label_productName.Size = new System.Drawing.Size(908, 48);
+            this.Label_productName.TabIndex = 12;
+            this.Label_productName.Text = "product_name";
+            this.Label_productName.Click += new System.EventHandler(this.Label_productName_Click);
             // 
-            // priceChart
+            // PriceChart
             // 
             chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Minutes;
             chartArea1.Name = "ChartArea1";
-            this.priceChart.ChartAreas.Add(chartArea1);
-            this.priceChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PriceChart.ChartAreas.Add(chartArea1);
+            this.PriceChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
-            this.priceChart.Legends.Add(legend1);
-            this.priceChart.Location = new System.Drawing.Point(0, 0);
-            this.priceChart.Name = "priceChart";
+            this.PriceChart.Legends.Add(legend1);
+            this.PriceChart.Location = new System.Drawing.Point(0, 0);
+            this.PriceChart.Name = "PriceChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.MarkerSize = 3;
             series1.Name = "Series1";
-            this.priceChart.Series.Add(series1);
-            this.priceChart.Size = new System.Drawing.Size(908, 386);
-            this.priceChart.TabIndex = 0;
-            this.priceChart.Text = "priceChart";
+            this.PriceChart.Series.Add(series1);
+            this.PriceChart.Size = new System.Drawing.Size(908, 386);
+            this.PriceChart.TabIndex = 0;
+            this.PriceChart.Text = "priceChart";
             // 
-            // timer
+            // Timer
             // 
-            this.timer.Interval = 10000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.Timer.Interval = 10000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // MainForm
             // 
@@ -658,16 +658,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1365, 686);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.status);
-            this.Controls.Add(this.menubar);
+            this.Controls.Add(this.Status);
+            this.Controls.Add(this.Menubar);
             this.Name = "MainForm";
             this.Text = "Amazon Price Recorder";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.menubar.ResumeLayout(false);
-            this.menubar.PerformLayout();
-            this.status.ResumeLayout(false);
-            this.status.PerformLayout();
+            this.Menubar.ResumeLayout(false);
+            this.Menubar.PerformLayout();
+            this.Status.ResumeLayout(false);
+            this.Status.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -679,13 +679,13 @@
             this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_usedStockCountThreshold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_newStockCountThreshold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_priceThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_usedStockCountThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_newStockCountThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown_priceThreshold)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_product)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.priceChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_product)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,22 +693,22 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip menubar;
-        private System.Windows.Forms.ToolStripButton addProductButton;
-        private System.Windows.Forms.ToolStripButton removeProductButton;
-        private System.Windows.Forms.ToolStripButton changeRefreshRateButton;
-        private System.Windows.Forms.ToolStripButton stopRefreshButton;
-        private System.Windows.Forms.ToolStripButton refreshButton;
+        private System.Windows.Forms.ToolStrip Menubar;
+        private System.Windows.Forms.ToolStripButton AddProductButton;
+        private System.Windows.Forms.ToolStripButton RemoveProductButton;
+        private System.Windows.Forms.ToolStripButton ChangeRefreshRateButton;
+        private System.Windows.Forms.ToolStripButton StopRefreshButton;
+        private System.Windows.Forms.ToolStripButton RefreshButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton settingButton;
-        private System.Windows.Forms.StatusStrip status;
+        private System.Windows.Forms.ToolStripButton SettingButton;
+        private System.Windows.Forms.StatusStrip Status;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListView productList;
+        private System.Windows.Forms.ListView ProductList;
         private System.Windows.Forms.ColumnHeader productName;
         private System.Windows.Forms.ColumnHeader leastPrice;
         private System.Windows.Forms.ColumnHeader stock;
@@ -721,31 +721,31 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Label label8;
-        internal System.Windows.Forms.DataVisualization.Charting.Chart priceChart;
-        internal System.Windows.Forms.Label label_usedStock;
-        internal System.Windows.Forms.Label label_newStock;
-        internal System.Windows.Forms.Label label_ranking;
-        internal System.Windows.Forms.Label label_reference_price;
-        internal System.Windows.Forms.Label label_Amazon_pricecut;
-        internal System.Windows.Forms.Label label_Amazon_price;
-        internal System.Windows.Forms.Label label_status;
-        internal System.Windows.Forms.PictureBox pictureBox_product;
-        internal System.Windows.Forms.Label label_productName;
-        internal System.Windows.Forms.Label label_ASIN;
+        internal System.Windows.Forms.DataVisualization.Charting.Chart PriceChart;
+        internal System.Windows.Forms.Label Label_usedStock;
+        internal System.Windows.Forms.Label Label_newStock;
+        internal System.Windows.Forms.Label Label_ranking;
+        internal System.Windows.Forms.Label Label_reference_price;
+        internal System.Windows.Forms.Label Label_Amazon_pricecut;
+        internal System.Windows.Forms.Label Label_Amazon_price;
+        internal System.Windows.Forms.Label Label_status;
+        internal System.Windows.Forms.PictureBox PictureBox_product;
+        internal System.Windows.Forms.Label Label_productName;
+        internal System.Windows.Forms.Label Label_ASIN;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button saveSettingButton;
+        private System.Windows.Forms.Button SaveSettingButton;
         private System.Windows.Forms.Label label16;
-        internal System.Windows.Forms.NumericUpDown numericUpDown_usedStockCountThreshold;
-        internal System.Windows.Forms.CheckBox checkBox_usedStockGoesDown;
+        internal System.Windows.Forms.NumericUpDown NumericUpDown_usedStockCountThreshold;
+        internal System.Windows.Forms.CheckBox CheckBox_usedStockGoesDown;
         private System.Windows.Forms.Label label15;
-        internal System.Windows.Forms.NumericUpDown numericUpDown_newStockCountThreshold;
+        internal System.Windows.Forms.NumericUpDown NumericUpDown_newStockCountThreshold;
         private System.Windows.Forms.Label label14;
-        internal System.Windows.Forms.NumericUpDown numericUpDown_priceThreshold;
-        internal System.Windows.Forms.CheckBox checkBox_priceGoesDown;
-        internal System.Windows.Forms.CheckBox checkBox_newStockGoesDown;
-        internal System.Windows.Forms.CheckBox checkBox_statusChange;
+        internal System.Windows.Forms.NumericUpDown NumericUpDown_priceThreshold;
+        internal System.Windows.Forms.CheckBox CheckBox_priceGoesDown;
+        internal System.Windows.Forms.CheckBox CheckBox_newStockGoesDown;
+        internal System.Windows.Forms.CheckBox CheckBox_statusChange;
     }
 }
 

@@ -12,31 +12,33 @@ namespace Amazon_Price_Recorder
 {
     public partial class Setting_InputForm : Form
     {
-        public Setting_InputForm()
+        public Setting_InputForm(Setting presentSetting)
         {
             InitializeComponent();
+            MailTextBox.Text = presentSetting.Email;
+            IdTextBox.Text = presentSetting.Id;
+            PassTextBox.Text = presentSetting.Pass;
         }
 
-        public Setting settings = null;
+        public Setting newSetting = null;
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (MailTextBox.Text == "")
             {
                 MessageBox.Show("送信先メールアドレスが入力されていません");
                 return;
             }
-            if (textBox2.Text != "")
+            if (IdTextBox.Text == "")
             {
                 MessageBox.Show("IDが入力されていません");
                 return;
             }
-            if (textBox3.Text != "")
+            if (PassTextBox.Text == "")
             {
                 MessageBox.Show("パスワードが入力されていません");
                 return;
             }
-            settings = new Setting(textBox1.Text, textBox2.Text, textBox3.Text);
-
+            newSetting = new Setting(MailTextBox.Text, IdTextBox.Text, PassTextBox.Text);
         }
     }
 }
