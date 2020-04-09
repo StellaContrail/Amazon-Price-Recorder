@@ -20,18 +20,23 @@ namespace AmazonProductAPI
         const string baseUrl = "https://www.amazon.co.jp/dp/";
 
         // 商品ページのHTMLを非同期的に取得する
-        public static Task<AngleSharp.Dom.IDocument> GetDocument(string ASIN)
+        internal static Task<AngleSharp.Dom.IDocument> GetDocument(string ASIN)
         {
-            WebRequest wr;
-            wr = WebRequest.Create(baseUrl + ASIN);
-            Stream stream;
-            stream = wr.GetResponse().GetResponseStream();
+            HttpWebRequest wr = WebRequest.Create(baseUrl + ASIN) as HttpWebRequest;
+            wr.CookieContainer = new CookieContainer();
+            if (wr.SupportsCookieContainer == false)
+            {
+                return null;
+            }
+            var response = wr.GetResponse() as HttpWebResponse;
+            Stream stream = response.GetResponseStream();
+
             string source = "";
             using (StreamReader sr = new StreamReader(stream))
             {
                 source = sr.ReadToEnd();
             }
-            var context = BrowsingContext.New(AngleSharp.Configuration.Default) as IBrowsingContext;
+            var context = BrowsingContext.New(Configuration.Default) as IBrowsingContext;
             return context.OpenAsync(req => req.Content(source));
         }
 
@@ -73,11 +78,18 @@ namespace AmazonProductAPI
             return true;
         }
 
-        public async static Task<bool> DownloadProductImage(string ASIN, string imageFilePath, AngleSharp.Dom.IDocument document = null)
+        public async static Task<bool> DownloadProductImage(string ASIN, string imageFilePath, AngleSharp.Dom.IDocument document = null, CookieContainer cookies = null)
         {
             if (document == null)
             {
-                document = await GetDocument(ASIN);
+                if (cookies != null)
+                {
+                    document = await GetDocument(ASIN);
+                }
+                else
+                {
+                    return false;
+                }
             }
             if (File.Exists(imageFilePath) == false)
             {
@@ -95,10 +107,10 @@ namespace AmazonProductAPI
         }
     }
 
-    static class ProductData
+    class ProductData
     {
         // Create Product with latest data
-        public async static Task<Product> Create(string ASIN, string cacheFolderPath)
+        public async Task<Product> Create(string ASIN, string cacheFolderPath)
         {
             // 商品ページのドキュメント
             AngleSharp.Dom.IDocument document = await Tools.GetDocument(ASIN);
@@ -123,7 +135,7 @@ namespace AmazonProductAPI
         }
 
         // 商品ページからAmazonからの出荷状況を調べる
-        private static MerchantStatus Status(this string merchantInfo)
+        private MerchantStatus Status(string merchantInfo)
         {
             if (merchantInfo.IndexOf("Amazon.co.jp が販売、発送") > -1)
             {
@@ -140,13 +152,64 @@ namespace AmazonProductAPI
         }
 
         // 商品ページのHTMLから商品の更新可能性のある情報を取得、更新する
-        public async static Task<Product> Update(Product product, AngleSharp.Dom.IDocument document = null)
+        public async Task<Product> Update(Product product, AngleSharp.Dom.IDocument document = null)
         {
+            // 新品/中古品のクエリを読み出す New/Used
+            int newStockCount = 0;
+            int? newStockPrice = null;
+            int usedStockCount = 0;
+            int? usedStockPrice = null;
+
             // ドキュメントが指定されていない場合、新しいドキュメントを取りに行く
             if (document == null)
             {
                 document = await Tools.GetDocument(product.ASIN);
             }
+
+            var stockNodes = document.QuerySelectorAll("#olp_feature_div > div > span:not(.a-color-base)");
+            if (stockNodes.Length != 0)
+            {
+                foreach (var stockNode in stockNodes)
+                {
+                    // 新品のクエリだけを読み出し、在庫と最低価格を抜き出す(存在しない場合有り)
+                    if (stockNode.QuerySelector("a").TextContent.IndexOf("新品の出品：") > -1)
+                    {
+                        var newStock = stockNode;
+                        newStockCount = Convert.ToInt32(newStock.QuerySelector("a").TextContent.Trim().Replace("新品の出品：", ""));
+                        newStockPrice = newStock.QuerySelector("span.a-color-price").TextContent.PriceToValue();
+                    }
+
+                    // 中古品のクエリだけを読み出し、在庫と最低価格を抜き出す(存在しない場合有り)
+                    if (stockNode.QuerySelector("a").TextContent.IndexOf("中古品の出品：") > -1)
+                    {
+                        var usedStock = stockNode;
+                        usedStockCount = Convert.ToInt32(usedStock.QuerySelector("a").TextContent.Trim().Replace("中古品の出品：", ""));
+                        usedStockPrice = usedStock.QuerySelector("span.a-color-price").TextContent.PriceToValue();
+                    }
+                }
+            }
+            else
+            {
+                stockNodes = document.QuerySelectorAll("#olp_feature_div > div > a");
+                if (stockNodes.Length != 0)
+                {
+                    // 取得エラー (在庫表記がおかしい)
+                    newStockCount = -1;
+                    newStockPrice = null;
+                    usedStockCount = -1;
+                    usedStockPrice = null;
+                }
+                else
+                {
+                    // 新品/中古品表記が無い = 在庫が無い
+                    newStockCount = 0;
+                    newStockPrice = null;
+                    usedStockCount = 0;
+                    usedStockPrice = null;
+                }
+            }
+
+
 
             // 現在価格を抜き出す
             var amazonPriceNode = document.QuerySelector("#priceblock_ourprice");
@@ -155,46 +218,18 @@ namespace AmazonProductAPI
             {
                 amazonPrice = amazonPriceNode.TextContent.PriceToValue();
             }
+
             // 割引価格を抜き出す(存在しない場合有り)
             var priceSavingNode = document.QuerySelector(".priceBlockSavingsString");
             int? priceSaving = null;
             if (priceSavingNode != null)
             {
                 string _priceSaving = priceSavingNode.TextContent.Trim();
-                // 割引価格のみ抜き出す
+                // 割引価格から値のみ抜き出す
                 Match match = Regex.Match(_priceSaving, @"￥\d{1,3}(,\d{1,3})*\b");
                 priceSaving = match.Value.Substring(1).PriceToValue();
             }
-            // 新品/中古品のクエリを読み出す(存在しない場合有り)
-            var stocks = document.QuerySelectorAll("#olp_feature_div > div > span");
-            // 新品のクエリだけを読み出し、在庫と最低価格を抜き出す(存在しない場合有り)
-            int newStockCount = 0;
-            int? newStockPrice = null;
-            var newStocks = stocks.Where(x => x.QuerySelector("a").TextContent.IndexOf("新品") > -1);
-            if (newStocks.Count() > 0)
-            {
-                var newStock = newStocks.First();
-                newStockCount = Convert.ToInt32(newStock.QuerySelector("a").TextContent.Trim().Replace("新品の出品：", ""));
-                newStockPrice = newStock.QuerySelector("span").TextContent.PriceToValue();
-            }
-            else
-            {
-                newStockCount = 0;
-            }
-            // 中古品のクエリだけを読み出し、在庫と最低価格を抜き出す(存在しない場合有り)
-            int usedStockCount = 0;
-            int? usedStockPrice = null;
-            var usedStocks = stocks.Where(x => x.QuerySelector("a").TextContent.IndexOf("中古品") > -1);
-            if (usedStocks.Count() > 0)
-            {
-                var usedStock = usedStocks.First();
-                usedStockCount = Convert.ToInt32(usedStock.QuerySelector("a").TextContent.Trim().Replace("中古品の出品：", ""));
-                usedStockPrice = usedStock.QuerySelector("span").TextContent.PriceToValue();
-            }
-            else
-            {
-                usedStockCount = 0;
-            }
+
             // Amazonからの出品が使用可能かどうか調べる
             string merchantText = document.QuerySelector("#merchant-info").TextContent;
             // 総合ランキング
@@ -222,7 +257,7 @@ namespace AmazonProductAPI
             product.PriceHistory[DateTime.Now] = price;
             product.PriceSaving = priceSaving;
             product.SetStockInfo(newStockPrice, newStockCount, usedStockPrice, usedStockCount);
-            product.MerchantStatus = merchantText.Status();
+            product.MerchantStatus = this.Status(merchantText);
             product.Ranking = ranking;
             product.Status = status;
 

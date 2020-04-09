@@ -37,6 +37,7 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.ImeMode = System.Windows.Forms.ImeMode.Alpha;
             this.numericUpDown1.Location = new System.Drawing.Point(12, 12);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             100000,
@@ -44,7 +45,7 @@
             0,
             0});
             this.numericUpDown1.Minimum = new decimal(new int[] {
-            60,
+            15,
             0,
             0,
             0});

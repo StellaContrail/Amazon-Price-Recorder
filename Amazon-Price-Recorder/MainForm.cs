@@ -24,10 +24,13 @@ namespace Amazon_Price_Recorder
         Product[] products;
         // 登録してある商品の数
         int productNum = 0;
+        // 登録できる商品数の限度
+        const int productNumMax = 128;
         // キャッシュデータを入れておくディレクトリの絶対パス
         string cacheFolderPath = Environment.CurrentDirectory + "\\cache\\";
         // 設定情報を格納する変数を宣言
-        Setting setting = new Setting();
+        Setting setting;
+        ProductData productData;
         private async void MainForm_Load(object sender, EventArgs e)
         {
             // キャッシュフォルダーが存在するか確認。無かったら作成
@@ -36,68 +39,10 @@ namespace Amazon_Price_Recorder
                 Directory.CreateDirectory(cacheFolderPath);
             }
 
-            products = new Product[128];
-            for (int i = 0; i < 128; i++)
-            {
-                products[i] = new Product();
-            }
-
-            // 以前に取得した商品情報が存在するか確認
-            string dataFilePath = cacheFolderPath + "\\data.dat";
-            if (File.Exists(dataFilePath))
-            {
-                // 保存してある商品情報の読み込み
-                statusLabel.Text = "保存した商品情報を読み込んでいます";
-                products = Extensions.Read(dataFilePath) as Product[];
-                // 登録できる上限までループを回す
-                for (int i = 0; i < 128; i++)
-                {
-                    // 登録してないところまで行ったらループを止める
-                    if (products[i].ASIN == "")
-                    {
-                        break;
-                    }
-                    // ASINデータの取得
-                    string ASIN = products[i].ASIN;
-                    // 更新の必要があるデータを取得、代入する
-                    products[i] = await ProductData.Update(products[i]);
-                    // リストに登録した商品情報を追加する
-                    ProductList.AddProduct(products[i]);
-                    // 追加した商品数分インクリメントしておく
-                    productNum++;
-                    statusLabel.Text = productNum + " 個目まで読み込み完了";
-                }
-                statusLabel.Text = "読み込み完了";
-
-                // 価格推移を表示するためのChartコントロールの初期化
-                PriceChart.Series.Clear();
-                PriceChart.ChartAreas.Clear();
-                PriceChart.Titles.Clear();
-                // Chartのタイトル
-                Title title = new Title("価格推移");
-                // Chartの描画設定
-                ChartArea area = new ChartArea();
-                area.AxisX.Title = "取得順";
-                area.AxisY.Title = "価格（円）";
-                PriceChart.Titles.Add(title);
-                PriceChart.ChartAreas.Add(area);
-
-                // 読み込みが終わったら一番最初の商品を選択する/初期値を表示
-                if (productNum > 0)
-                {
-                    ProductList.Items[0].Selected = true;
-                    ProductList.Select();
-                }
-                else
-                {
-                    statusLabel.Text = "描画しています";
-                    await DrawProductInformation(new Product(), cacheFolderPath);
-                    DrawPriceHistory(new Product());
-                }
-            }
+            products = new Product[productNumMax];
 
             // 以前に作成した設定データがあるか調べる
-            string settingFilePath = cacheFolderPath + "\\setting.dat";
+            string settingFilePath = cacheFolderPath + "setting.dat";
             int refreshRateInSeconds = 120;
             if (File.Exists(settingFilePath))
             {
@@ -108,9 +53,70 @@ namespace Amazon_Price_Recorder
                 setting = new Setting("", "", "", refreshRateInSeconds);
                 Extensions.Save(setting, settingFilePath);
             }
+            productData = new ProductData();
+            
+            // 以前に取得した商品情報が存在するか確認
+            string dataFilePath = cacheFolderPath + "data.dat";
+            if (File.Exists(dataFilePath))
+            {
+                // 保存してある商品情報の読み込み
+                statusLabel.Text = "保存した商品情報を読み込んでいます";
+                products = Extensions.Read(dataFilePath) as Product[];
+
+                // 登録できる上限までループを回す
+                for (int i = 0; i < productNumMax; i++)
+                {
+                    // 登録してないところまで行ったらループを止める
+                    if (products[i] == null || products[i].ASIN == "")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        string ASIN = products[i].ASIN;
+                        // ASINデータの取得
+                        // 商品情報の更新
+                        products[i] = await productData.Update(products[i]);
+                        // リストに登録した商品情報を追加する
+                        ProductList.AddProduct(products[i]);
+                        statusLabel.Text = (productNum + 1) + " 個目まで読み込み完了";
+                        Status.Update();
+                        // 追加した商品数分インクリメントしておく
+                        productNum++;
+                    }
+                }
+                statusLabel.Text = "読み込み完了";
+
+                // 価格推移を表示するためのChartコントロールの初期化
+                // データ系列の初期化
+                PriceChart.Series.Clear();
+                // グラフ部分の初期化
+                PriceChart.ChartAreas.Clear();
+                // タイトル部分の初期化
+                PriceChart.Titles.Clear();
+                // Chartの描画
+                ChartArea area = new ChartArea();
+                area.AxisX.Title = "日付";
+                area.AxisY.Title = "価格 (円)";
+                PriceChart.ChartAreas.Add(area);
+                PriceChart.Titles.Add(new Title("価格推移"));
+
+                // 読み込みが終わったら一番最初の商品を選択する/初期値を表示
+                if (productNum > 0)
+                {
+                    ProductList.Items[0].Selected = true;
+                    ProductList.Select();
+                }
+                else
+                {
+                    await DrawProductInformation(new Product(), cacheFolderPath);
+                    DrawPriceHistory(new Product());
+                }
+            }
+
 
             // タイマーをスタートする
-            Timer.Interval = Convert.ToInt32(setting.Interval * 1000);
+            Timer.SetInterval(setting.Interval);
             Timer.Start();
             statusLabel.Text = "準備完了  -  更新間隔は" + setting.Interval + " 秒です";
         }
@@ -120,6 +126,7 @@ namespace Amazon_Price_Recorder
         {
             statusLabel.Text = "商品情報および設定を保存しています";
             Extensions.Save(products, cacheFolderPath + "data.dat");
+            Extensions.Save(setting, cacheFolderPath + "setting.dat");
             statusLabel.Text = "保存終了";
         }
 
@@ -168,8 +175,6 @@ namespace Amazon_Price_Recorder
             PriceChart.Series.Add(seriesLine);
             PriceChart.ChartAreas[0].AxisY.Maximum = maximumPrice + 1000;
             PriceChart.ChartAreas[0].AxisY.Minimum = minimumPrice - 1000;
-            PriceChart.ChartAreas[0].AxisX.Title = "日付";
-            PriceChart.ChartAreas[0].AxisY.Title = "価格(円)";
             PriceChart.ChartAreas[0].AxisY.Interval = 500;
             PriceChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
             DateTime dt = priceRecordsCount > 0 ? product.PriceHistory.OrderBy(x => x.Key).First().Key : DateTime.Now;
@@ -199,8 +204,8 @@ namespace Amazon_Price_Recorder
                 int selectedIndex = ProductList.SelectedItems[0].Index;
                 // 仮のProduct配列を作り、削除する商品を飛ばして代入することで
                 // 削除する商品を抜かしてキューを作る
-                Product[] _products = new Product[128];
-                for (int i = 0; i < 128; i++)
+                Product[] _products = new Product[productNumMax];
+                for (int i = 0; i < productNumMax; i++)
                 {
                     _products[i] = new Product();
                 }
@@ -231,7 +236,7 @@ namespace Amazon_Price_Recorder
         }
 
         // 通知を行う
-        private async void Nortify(Product updatedProduct, string oldProductStatus)
+        private async void Notify(Product updatedProduct, string oldProductStatus)
         {
             // 通知を送るべき項目がtrueになる
             bool[] nortificateItems = new bool[4];
@@ -253,7 +258,7 @@ namespace Amazon_Price_Recorder
             }
             if (updatedProduct.whenNewStockCountGoesDown)
             {
-                if (updatedProduct.thresholdNewStockCount < updatedProduct.NewStockCount)
+                if (updatedProduct.NewStockCount >= 0 && updatedProduct.NewStockCount < updatedProduct.thresholdNewStockCount)
                 {
                     nortificateItems[2] = true;
                     updatedProduct.whenNewStockCountGoesDown = false;
@@ -261,7 +266,7 @@ namespace Amazon_Price_Recorder
             }
             if (updatedProduct.whenUsedStockCountGoesDown)
             {
-                if (updatedProduct.thresholdUsedStockCount < updatedProduct.UsedStockCount)
+                if (updatedProduct.UsedStockCount >= 0 && updatedProduct.UsedStockCount < updatedProduct.thresholdUsedStockCount)
                 {
                     nortificateItems[3] = true;
                     updatedProduct.whenUsedStockCountGoesDown = false;
@@ -316,6 +321,7 @@ namespace Amazon_Price_Recorder
 
         private async void Timer_Tick(object sender, EventArgs e)
         {
+            Timer.Stop();
             if (productNum < 1)
             {
                 return;
@@ -326,20 +332,26 @@ namespace Amazon_Price_Recorder
             {
                 string oldProductStatus = products[i].Status;
                 // スクレピングを行って更新すべきデータのみを更新する（NativeDataはそのまま）
-                products[i] = await ProductData.Update(products[i]);
-                Nortify(products[i], oldProductStatus);
+                products[i] = await productData.Update(products[i]);
+                Notify(products[i], oldProductStatus);
+                ProductList.UpdateProduct(i, products[i]);
                 // 12ヶ月前のデータは消去する
                 Extensions.DeletePriceHistory(products[i], DateTime.Now.AddMonths(-12));
-                statusLabel.Text = i + 1 + " 番目更新完了";
-            }
-            // 選択してあった商品情報のプレビュー画面を更新する
-            if (ProductList.SelectedItems.Count > 0)
-            {
+                statusLabel.Text = (i + 1) + " 番目更新完了";
+                Status.Update();
+                ProductList.Update();
+
                 int selectedIndex = ProductList.SelectedItems[0].Index;
-                await DrawProductInformation(products[selectedIndex], cacheFolderPath);
-                DrawPriceHistory(products[selectedIndex]);
+                // 選択してあった商品情報のプレビュー画面を更新する
+                if (ProductList.SelectedItems.Count > 0 && ProductList.SelectedItems[0].Index == i)
+                {
+                    await DrawProductInformation(products[selectedIndex], cacheFolderPath);
+                    DrawPriceHistory(products[selectedIndex]);
+                }
             }
-            statusLabel.Text = "更新完了";
+            DateTime dt = DateTime.Now;
+            statusLabel.Text = "更新完了 (" + dt.ToShortTimeString() + "  " + dt.ToShortDateString() + ")";
+            Timer.Start();
         }
 
         bool isRefreshHalt = false;
@@ -373,7 +385,7 @@ namespace Amazon_Price_Recorder
                 setting.Interval = form.value;
                 Extensions.Save(setting, cacheFolderPath + "\\setting.dat");
                 Timer.Start();
-                statusLabel.Text = "更新間隔を" + Timer.Interval + " 秒に変更しました";
+                statusLabel.Text = "更新間隔を" + (Timer.Interval / 1000) + " 秒に変更しました";
             }
         }
 
@@ -392,7 +404,7 @@ namespace Amazon_Price_Recorder
                     DisableAllButtons();
                     statusLabel.Text = "商品情報を取得しています";
                     // 商品データを取得する
-                    products[productNum] = await ProductData.Create(ASIN, cacheFolderPath);
+                    products[productNum] = await productData.Create(ASIN, cacheFolderPath);
 
                     // リストに追加する
                     ProductList.AddProduct(products[productNum]);
@@ -417,28 +429,9 @@ namespace Amazon_Price_Recorder
             }
         }
 
-        private async void RefreshButton_Click(object sender, EventArgs e)
+        private void RefreshButton_Click(object sender, EventArgs e)
         {
-            // 更新を一時的に停止する
-            Timer.Stop();
-            statusLabel.Text = "更新しています";
-            // 登録してある商品情報を更新する
-            for (int i = 0; i < productNum; i++)
-            {
-                products[i] = await ProductData.Update(products[i]);
-                // 一ヶ月前のデータは消去する
-                Extensions.DeletePriceHistory(products[i], DateTime.Now.AddMonths(-1));
-                statusLabel.Text = i + 1 + " 番目更新完了";
-            }
-            statusLabel.Text = "更新完了";
-            Timer.Start();
-            // 選択してあった商品情報のプレビュー画面を更新する
-            if (ProductList.SelectedItems.Count > 0)
-            {
-                int selectedIndex = ProductList.SelectedItems[0].Index;
-                await DrawProductInformation(products[selectedIndex], cacheFolderPath);
-                DrawPriceHistory(products[selectedIndex]);
-            }
+            Timer_Tick(null, null);
         }
 
         private void SettingButton_Click(object sender, EventArgs e)
@@ -486,10 +479,26 @@ namespace Amazon_Price_Recorder
             Label_Amazon_price.Text = price == null ? "在庫切れ" : "￥" + price.ToString();
             int? referencePrice = product.ReferencePrice;
             Label_reference_price.Text = referencePrice == null ? "未設定" : "￥" + referencePrice.ToString();
+
             int newStockCount = product.NewStockCount;
-            Label_newStock.Text = newStockCount < 1 ? "無し" : newStockCount.ToString() + "　個";
+            if (newStockCount >= 0)
+            {
+                Label_newStock.Text = newStockCount.ToString() + "　個";
+            }
+            else
+            {
+                Label_newStock.Text = "取得エラー";
+            }
             int usedStockCount = product.UsedStockCount;
-            Label_usedStock.Text = usedStockCount < 1 ? "無し" : product.UsedStockCount.ToString() + "　個";
+            if (usedStockCount >= 0)
+            {
+                Label_usedStock.Text = usedStockCount.ToString() + "　個";
+            }
+            else
+            {
+                Label_newStock.Text = "取得エラー";
+            }
+
             Label_ranking.Text = product.Ranking;
             Label_status.Text = product.Status;
             int? priceSaving = product.PriceSaving;
